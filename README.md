@@ -42,9 +42,16 @@ rails new app_name \
 
 - Setup bot config in `config/secrets.yml`.
 
-- Uncomment this line in `spec/rails_helper.rb`:
+- Uncomment these lines (based on rspec version) in `spec/rails_helper.rb`:
   ```ruby
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  ```
+  Or
+
+  ```ruby
+  return unless Rails.env.test?
+
+  Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
   ```
 
 - _Optional._ Uncomment default configuration in `spec/spec_helper.rb`.
