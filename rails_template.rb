@@ -80,7 +80,7 @@ production:
   <<: *dev
 YML
 
-run 'rm config/secrets.yml && bin/copy_samples'
+run 'rm -f config/secrets.yml && bin/copy_samples'
 
 ### RSpec
 
